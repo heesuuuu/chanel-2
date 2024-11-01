@@ -1,0 +1,47 @@
+// 599px 이하일 경우
+@mixin mobile {
+  @media screen and (max-width: 479px) {
+    .teamvid__section {
+      height: 170vw;
+      max-height: none;
+      margin-left: -6vw;
+      margin-right: -6vw;
+    }
+    .tvid__control-wrapper {
+      top: 6vw;
+      right: 6vw;
+    }
+  }
+}
+
+// 600px 이상일 경우
+@mixin mobileMore {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+// 600px 이상 1024px 이하일 경우
+@mixin tablet {
+  @media (min-width: $breakpoint-sm) and (max-width: ($breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin tabletLess {
+  @media (max-width: ($breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin tabletMore {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}

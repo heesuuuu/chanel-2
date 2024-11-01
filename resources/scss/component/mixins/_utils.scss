@@ -1,0 +1,181 @@
+@mixin focus($offset: -0.4rem, $color: $primary, $alpha: 0.8) {
+  //border-radius: inherit;
+  outline-offset: $offset;
+  $transparent: 1 - $alpha;
+  // $focus-color: transparentize($color, $transparent);
+  $focus-color: $primary;
+  outline: 2px solid $focus-color;
+}
+
+@mixin flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flexitems {
+  display: flex;
+  align-items: center;
+}
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-layout($d: flex, $ai: flex-start, $jc: flex-start, $fd: row) {
+  display: $d;
+  align-items: $ai;
+  justify-content: $jc;
+  flex-direction: $fd;
+}
+
+@mixin card($bg-color, $border-color) {
+  height: 300px;
+  border: 1px solid $border-color;
+  background-color: $bg-color;
+}
+
+@mixin posX {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin posY {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin posXY {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin ani-s {
+  transform: translateY(60px);
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+@mixin ani-e {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+// 말줄임
+@mixin ell {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+@mixin img-g {
+  display: inline-block;
+  overflow: hidden;
+  background: url(../../images/img-comm.png) no-repeat;
+  vertical-align: top;
+  text-indent: -9999px;
+  font-size: 0;
+  line-height: 0;
+}
+
+@mixin box-line {
+  border: 1px solid $border-color;
+  border-top: 1px solid #19a0cf;
+}
+
+@mixin ico_square {
+  position: relative;
+  padding-left: 12px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 3px;
+    height: 3px;
+    background: #555;
+  }
+}
+
+@mixin ff-g {
+  font-family: "mGothic";
+}
+
+@mixin position($p: absolute, $t: null, $b: null, $l: null, $r: null) {
+  position: $p;
+  top: $t;
+  bottom: $b;
+  left: $l;
+  right: $r;
+}
+
+@mixin lineAwesome {
+  font-family: "Line Awesome Free";
+  font-weight: 900;
+}
+
+@mixin sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+//  main_ product item
+@media screen and (max-width: 991px) {
+  .items {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+@media screen and (max-width: 479px) {
+  .items {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  // .teamvid__section {
+  //   border-radius: 0;
+  //   height: 120vw;
+  //   margin-left: -40px;
+  //   margin-right: -40px;
+  // }
+  .teamvid__section {
+    height: 170vw;
+    max-height: none;
+    margin-left: -6vw;
+    margin-right: -6vw;
+  }
+}
+
+//video toggle
+@media screen and (max-width: 991px) {
+  .teamvid__section {
+    height: 110vw;
+    max-height: 90vh;
+  }
+}
+@media (hover: hover) and (max-width: 767px) {
+  .teamvid__section {
+    border-radius: 0;
+    height: 120vw;
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+  .tvid__audio-toggle:hover {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    margin: -5px;
+  }
+}
+

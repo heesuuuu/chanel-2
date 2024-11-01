@@ -1,0 +1,279 @@
+// 사이트 레이아웃 스타일
+
+// 전역 그리드
+.inner {
+  position: relative;
+  width: 100%;
+  max-width: $grid;
+  margin: 0 auto;
+  padding: 0 $p-mobile;
+  color: var(--font-color-black);
+  @include tablet {
+    padding: 0 $p-tablet;
+  }
+}
+
+// 스킵 네비게이션
+#skip-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  text-align: center;
+  background-color: $gray-90;
+  a {
+    &:not(:focus) {
+      @include sr-only;
+    }
+    &:focus {
+      @include flex-layout($ai: center, $jc: center);
+      @include focus($color: $white, $alpha: 0.9);
+      font-size: 1.5rem;
+      color: $white;
+      width: 100%;
+      height: 3.2rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  &.type1 {
+    background-color: $white;
+    a {
+      &:focus {
+        color: $gray-90;
+      }
+    }
+  }
+}
+
+// header
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  &.active {
+    &::before {
+      height: 218px;
+    }
+    .gnb__depth2 {
+      height: 218px;
+      padding: 30px 0;
+    }
+  }
+  &::before {
+    content: "";
+    // display: none;
+    position: absolute;
+    top: 102px;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: var(--background-color-translate);
+    transition: all 0.3s;
+    border-top: 1px solid $gray-20;
+  }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: none;
+    height: 73px;
+    @include tabletMore {
+      height: auto;
+    }
+  }
+  #logo {
+    a {
+      width: 100%;
+      height: 100%;
+      color: var(--font-color-black);
+      font-family: "chanel";
+      font-size: 2.1875rem;
+      letter-spacing: 0.25rem;
+    }
+    span {
+      @include sr-only;
+    }
+  }
+}
+
+#gnb {
+  display: none;
+  position: relative;
+  @include tabletMore {
+    display: block;
+  }
+  .gnb__depth1 {
+    display: flex;
+    > li {
+      position: relative;
+      &:hover {
+        > a > span {
+          color: $primary;
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+      &:first-child {
+        .gnb__depth2 {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            background: var(--background-color-translate);
+          }
+        }
+      }
+      > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 102px;
+        padding: 0 50px;
+        font-size: 1.8rem;
+        &:hover {
+          text-decoration: none;
+        }
+        span {
+          position: relative;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: $primary;
+            transition: all 0.3s;
+          }
+        }
+      }
+    }
+  }
+  .gnb__depth2 {
+    overflow: hidden;
+    position: absolute;
+    top: 102px;
+    left: 0;
+    right: 0;
+    height: 0;
+    padding: 0;
+    transition: all 0.3s;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+    }
+    a {
+      display: block;
+      padding: 7px 0;
+      text-align: center;
+      color: $gray-70;
+      &:hover {
+        font-weight: $font-bold;
+        color: $gray-90;
+      }
+    }
+  }
+}
+
+.util {
+  display: flex;
+  gap: 15px;
+
+  .lang {
+    display: none;
+    position: relative;
+    @include tabletMore {
+      display: block;
+    }
+    &.active {
+      .lang__btn::after {
+        content: "\f106";
+        @include lineAwesome;
+      }
+      .lang__lst {
+        display: block;
+      }
+    }
+    &__btn {
+      height: 57px;
+      margin-right: 10px;
+      text-transform: uppercase;
+      // color: var(--font-color-white);
+      &::after {
+        content: "\f107";
+        @include lineAwesome;
+        margin-left: 5px;
+        color: var(--font-color-black);
+      }
+    }
+    &__lst {
+      display: none;
+      position: absolute;
+      top: 52px;
+      left: 0;
+      width: 90%;
+      border: 1px solid $gray-40;
+      background: $white;
+      text-align: center;
+      li {
+        padding: 5px 0;
+        text-transform: uppercase;
+        color: var(--font-color-black);
+        &:first-child {
+          border-bottom: 1px solid $gray-40;
+        }
+      }
+    }
+  }
+  .search {
+    transform: scaleX(-1);
+    &::before {
+      content: "\f002";
+      @include lineAwesome;
+      font-size: 3rem;
+      // color: var(--font-color-white);
+    }
+  }
+  .all-menu {
+    &::before {
+      content: "\f0c9";
+      @include lineAwesome;
+      font-size: 3rem;
+      // color: var(--font-color-white);
+    }
+  }
+}
+
+#nav-all {
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  padding: $p-mobile;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  &.active {
+    display: block;
+    left: 0;
+  }
+}

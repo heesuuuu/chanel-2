@@ -1,0 +1,82 @@
+// 변수 설정
+
+$white: #fff;
+$black: #000;
+
+// ## Primary colors
+$primary: #246beb;
+$primary-0: #ffffff;
+$primary-5: #eff5ff;
+$primary-10: #d3e1fb;
+$primary-20: #a7c4f7;
+$primary-30: #7ca6f3;
+$primary-40: #5089ef; // (3 : 1 with white)
+$primary-50: #246beb; // base (4.5 : 1 with white), 입력창 활성화
+$primary-60: #1d56bc;
+$primary-70: #16408d;
+$primary-80: #0e2b5e;
+$primary-90: #07152f;
+$primary-100: #000000;
+
+// # Secondary colors
+$secondary: #003675;
+$secondary-0: #ffffff;
+$secondary-5: #edf1f5;
+$secondary-10: #cdd7e4;
+$secondary-20: #b4c4d6;
+$secondary-30: #99b0cb;
+$secondary-40: #2a5c96; // (3 : 1 with white)
+$secondary-50: #003675; // base (4.5 : 1 with white)
+$secondary-60: #002b5e;
+$secondary-70: #002046;
+$secondary-80: #00162f;
+$secondary-90: #000b17;
+$secondary-100: #000000;
+
+// Grayscale
+$gray-0: #ffffff; // background-base
+$gray-5: #f8f8f8; // background
+$gray-10: #f0f0f0;
+$gray-20: #e4e4e4; // disabled
+$gray-30: #d8d8d8;
+$gray-40: #c6c6c6; // border
+$gray-50: #8e8e8e; // text-disabled
+$gray-60: #717171; // 입력창 기본 상태
+$gray-70: #555555; // text-body, detail text
+$gray-80: #2d2d2d; // text-title
+$gray-90: #1d1d1d;
+$gray-100: #000000;
+
+//font weight
+$font-light: 300 !default;
+$font-normal: 400 !default;
+$font-medium: 500 !default;
+$font-semibold: 600 !default;
+$font-bold: 700 !default;
+$font-bolder: 800 !default;
+
+// font-style
+$font-family-base: "Noto Sans KR", sans-serif !default;
+$font-size-root: 62.5% !default; //10px 1rem으로 설정
+$font-size-base: 1.7rem !default;
+$font-color-base: $gray-90 !default;
+$font-weight-base: $font-normal !default;
+
+//line height style
+$line-height-none: 1 !default;
+$line-height-base: 1.5 !default;
+
+// layout 1280px 기준
+$grid: 1340px !default;
+$p-tablet: 30px !default;
+$p-mobile: 20px !default;
+
+$hdH: 80px;
+$hdH-xl: 80px;
+
+$ftH: 70px;
+
+//breakpoints
+$breakpoint-sm: 600px !default;
+$breakpoint-md: 1024px !default;
+$breakpoint-lg: 1920px !default;
